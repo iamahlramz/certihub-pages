@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - CertiHub</title>
+    <meta name="description" content="CertiHub Support - Get help with your certification exam preparation, account issues, and more.">
+    <link rel="canonical" href="https://iamahlramz.github.io/certihub-pages/support.html">
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-dark: #4F46E5;
+            --secondary: #10B981;
+            --background: #0F172A;
+            --surface: #1E293B;
+            --surface-elevated: #334155;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --accent-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 60px;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: 1.125rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 48px 0 24px;
+            color: var(--primary);
+        }
+
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--surface);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background: var(--surface-elevated);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            transition: transform 0.2s;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 24px 20px;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Quick Links */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .quick-link {
+            background: var(--surface);
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: border-color 0.2s;
+        }
+
+        .quick-link:hover {
+            border-color: var(--primary);
+        }
+
+        .quick-link span:first-child {
+            font-size: 1.5rem;
+        }
+
+        /* Account Deletion */
+        .deletion-section {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 48px;
+        }
+
+        .deletion-section h3 {
+            color: #EF4444;
+            margin-bottom: 16px;
+        }
+
+        .deletion-section p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .deletion-section ol {
+            color: var(--text-secondary);
+            margin-left: 24px;
+        }
+
+        .deletion-section li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">CertiHub</a>
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Support Center</h1>
+        <p class="subtitle">We're here to help you succeed in your certification journey.</p>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email Support</h3>
+                <p>Get help within 24-48 hours</p>
+                <a href="mailto:support@certihub.app">support@certihub.app</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">🐛</div>
+                <h3>Report a Bug</h3>
+                <p>Help us improve CertiHub</p>
+                <a href="mailto:bugs@certihub.app">bugs@certihub.app</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">💡</div>
+                <h3>Feature Requests</h3>
+                <p>Share your ideas with us</p>
+                <a href="mailto:feedback@certihub.app">feedback@certihub.app</a>
+            </div>
+        </div>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What certifications does CertiHub support?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>CertiHub currently supports Microsoft and GitHub certifications including:</p>
+                <ul>
+                    <li><strong>Microsoft:</strong> DP-600, AI-102, PL-900, PL-300, AZ-900, AI-900, and more</li>
+                    <li><strong>GitHub:</strong> GitHub Foundations, GitHub Actions, GitHub Copilot</li>
+                </ul>
+                <p>We're constantly adding new certifications. Check the app for the latest list!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do difficulty levels work?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>CertiHub offers four difficulty levels:</p>
+                <ul>
+                    <li><strong>Easy:</strong> Foundational concepts, straightforward questions</li>
+                    <li><strong>Normal:</strong> Standard exam-level difficulty</li>
+                    <li><strong>Hard:</strong> Challenging questions requiring deep understanding</li>
+                    <li><strong>Nightmare:</strong> Expert-level questions with subtle distinctions</li>
+                </ul>
+                <p>We recommend starting with Easy and progressing as you build confidence.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What's the difference between Guest, Free, and Pro?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <th style="padding: 12px; text-align: left;">Feature</th>
+                        <th style="padding: 12px; text-align: center;">Guest</th>
+                        <th style="padding: 12px; text-align: center;">Free</th>
+                        <th style="padding: 12px; text-align: center;">Pro</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;">Daily Questions</td>
+                        <td style="padding: 12px; text-align: center;">50</td>
+                        <td style="padding: 12px; text-align: center;">100</td>
+                        <td style="padding: 12px; text-align: center;">Unlimited</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;">Certifications</td>
+                        <td style="padding: 12px; text-align: center;">Fundamentals</td>
+                        <td style="padding: 12px; text-align: center;">All</td>
+                        <td style="padding: 12px; text-align: center;">All</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;">Source Links</td>
+                        <td style="padding: 12px; text-align: center;">-</td>
+                        <td style="padding: 12px; text-align: center;">-</td>
+                        <td style="padding: 12px; text-align: center;">✓</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px;">Readiness Score</td>
+                        <td style="padding: 12px; text-align: center;">-</td>
+                        <td style="padding: 12px; text-align: center;">Basic</td>
+                        <td style="padding: 12px; text-align: center;">Advanced</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do I cancel my Pro subscription?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Subscriptions are managed through the Apple App Store:</p>
+                <ol>
+                    <li>Open <strong>Settings</strong> on your iPhone</li>
+                    <li>Tap your <strong>Apple ID</strong> at the top</li>
+                    <li>Tap <strong>Subscriptions</strong></li>
+                    <li>Find <strong>CertiHub</strong> and tap it</li>
+                    <li>Tap <strong>Cancel Subscription</strong></li>
+                </ol>
+                <p>Your Pro access will continue until the end of your billing period.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Are the questions the same as the real exam?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>No.</strong> CertiHub questions are original practice questions designed to help you prepare. They are NOT actual exam questions.</p>
+                <p>Our questions are based on the official exam objectives and Microsoft documentation, but the actual exam may differ in format, wording, and specific scenarios.</p>
+                <p>We recommend using CertiHub alongside official Microsoft Learn materials for the best preparation.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>I found an incorrect question. How do I report it?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Thank you for helping us improve! You can report questions directly in the app:</p>
+                <ol>
+                    <li>After submitting your answer, look for the <strong>Report Question</strong> button</li>
+                    <li>Select the issue type (incorrect answer, outdated, unclear, etc.)</li>
+                    <li>Add optional details</li>
+                    <li>Submit the report</li>
+                </ol>
+                <p>Reported questions are reviewed by our team and temporarily hidden until verified.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Will my progress sync across devices?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Registered users (Free & Pro):</strong> Yes! Your progress syncs automatically when you're signed in.</p>
+                <p><strong>Guest users:</strong> Progress is stored locally on your device only. Create a free account to sync across devices.</p>
+            </div>
+        </div>
+
+        <h2>Quick Links</h2>
+        <div class="quick-links">
+            <a href="privacy.html" class="quick-link">
+                <span>🔒</span>
+                <span>Privacy Policy</span>
+            </a>
+            <a href="terms.html" class="quick-link">
+                <span>📜</span>
+                <span>Terms of Service</span>
+            </a>
+            <a href="https://learn.microsoft.com/en-us/certifications/" class="quick-link" target="_blank">
+                <span>🎓</span>
+                <span>Microsoft Learn</span>
+            </a>
+        </div>
+
+        <div class="deletion-section" id="delete-account">
+            <h3>Account Deletion</h3>
+            <p>To delete your CertiHub account and all associated data:</p>
+            <ol>
+                <li>Open the CertiHub app</li>
+                <li>Go to <strong>Settings</strong></li>
+                <li>Scroll to <strong>Account</strong></li>
+                <li>Tap <strong>Delete Account</strong></li>
+                <li>Confirm deletion</li>
+            </ol>
+            <p>Alternatively, email <a href="mailto:support@certihub.app" style="color: #EF4444;">support@certihub.app</a> with the subject "Account Deletion Request" and we'll process it within 48 hours.</p>
+            <p><strong>Note:</strong> Account deletion is permanent and cannot be undone. All your progress, history, and personal data will be removed.</p>
+        </div>
+
+        <h2 id="contact">Still Need Help?</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">If you couldn't find the answer to your question, reach out to us directly:</p>
+        <div class="contact-grid" style="max-width: 500px;">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email Us</h3>
+                <p>We typically respond within 24-48 hours</p>
+                <a href="mailto:support@certihub.app">support@certihub.app</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CertiHub. All rights reserved.</p>
+            <p><a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a> | <a href="support.html">Support</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
