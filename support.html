@@ -111,8 +111,37 @@
         }
 
         .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.15);
+            border-radius: 12px;
+            color: var(--primary);
+        }
+
+        .contact-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .quick-link-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.15);
+            border-radius: 8px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .quick-link-icon svg {
+            width: 20px;
+            height: 20px;
         }
 
         .contact-card h3 {
@@ -201,9 +230,6 @@
             border-color: var(--primary);
         }
 
-        .quick-link span:first-child {
-            font-size: 1.5rem;
-        }
 
         /* Account Deletion */
         .deletion-section {
@@ -260,19 +286,25 @@
 
         <div class="contact-grid">
             <div class="contact-card">
-                <div class="contact-icon">📧</div>
+                <div class="contact-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
                 <h3>Email Support</h3>
                 <p>Get help within 24-48 hours</p>
                 <a href="mailto:support@certihub.app">support@certihub.app</a>
             </div>
             <div class="contact-card">
-                <div class="contact-icon">🐛</div>
+                <div class="contact-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 8v4"/><circle cx="12" cy="16" r="1"/></svg>
+                </div>
                 <h3>Report a Bug</h3>
                 <p>Help us improve CertiHub</p>
                 <a href="mailto:bugs@certihub.app">bugs@certihub.app</a>
             </div>
             <div class="contact-card">
-                <div class="contact-icon">💡</div>
+                <div class="contact-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                </div>
                 <h3>Feature Requests</h3>
                 <p>Share your ideas with us</p>
                 <a href="mailto:feedback@certihub.app">feedback@certihub.app</a>
@@ -415,15 +447,21 @@
         <h2>Quick Links</h2>
         <div class="quick-links">
             <a href="privacy.html" class="quick-link">
-                <span>🔒</span>
+                <div class="quick-link-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
                 <span>Privacy Policy</span>
             </a>
             <a href="terms.html" class="quick-link">
-                <span>📜</span>
+                <div class="quick-link-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
                 <span>Terms of Service</span>
             </a>
             <a href="https://learn.microsoft.com/en-us/certifications/" class="quick-link" target="_blank">
-                <span>🎓</span>
+                <div class="quick-link-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
                 <span>Microsoft Learn</span>
             </a>
         </div>
@@ -446,7 +484,9 @@
         <p style="color: var(--text-secondary); margin-bottom: 24px;">If you couldn't find the answer to your question, reach out to us directly:</p>
         <div class="contact-grid" style="max-width: 500px;">
             <div class="contact-card">
-                <div class="contact-icon">📧</div>
+                <div class="contact-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
                 <h3>Email Us</h3>
                 <p>We typically respond within 24-48 hours</p>
                 <a href="mailto:support@certihub.app">support@certihub.app</a>

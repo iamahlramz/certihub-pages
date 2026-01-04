@@ -94,6 +94,37 @@
             color: var(--text-primary);
         }
 
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 101;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
         /* Hero Section */
         .hero {
             padding: 160px 0 100px;
@@ -220,8 +251,20 @@
         }
 
         .feature-icon {
-            font-size: 2.5rem;
+            width: 48px;
+            height: 48px;
             margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.15);
+            border-radius: 12px;
+            color: var(--primary);
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
         }
 
         .feature-card h3 {
@@ -361,13 +404,45 @@
                 font-size: 2.5rem;
             }
 
+            .menu-toggle {
+                display: flex;
+            }
+
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--background);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s, visibility 0.3s;
+            }
+
+            .nav-links.active {
+                display: flex;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links a {
+                font-size: 1.5rem;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
+            }
+        }
+
+        @media (max-width: 900px) and (min-width: 769px) {
+            .nav-links {
+                gap: 20px;
             }
         }
     </style>
@@ -376,10 +451,15 @@
     <nav>
         <div class="container">
             <div class="logo">CertiHub</div>
+            <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
+                <li><a href="#features" onclick="closeMenu()">Features</a></li>
+                <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
                 <li><a href="support.html">Support</a></li>
             </ul>
         </div>
@@ -439,32 +519,44 @@
             <h2 class="section-title">Why Choose CertiHub?</h2>
             <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
                     <h3>Adaptive Difficulty</h3>
                     <p>Four difficulty levels from Easy to Nightmare. Start where you're comfortable and progress as you improve.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                    </div>
                     <h3>Topic Performance</h3>
                     <p>See exactly which exam topics need more practice with detailed analytics and radar charts.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📚</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    </div>
                     <h3>Detailed Explanations</h3>
                     <p>Learn why each answer is correct or incorrect with links to official Microsoft documentation.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                    </div>
                     <h3>Exam Readiness Score</h3>
                     <p>Know when you're ready to take the real exam with our readiness assessment.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                    </div>
                     <h3>Practice Anywhere</h3>
                     <p>Native iOS app and web version. Your progress syncs across all devices.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+                    </div>
                     <h3>Fresh Questions</h3>
                     <p>Smart rotation ensures you see new questions each session. No memorization, real learning.</p>
                 </div>
@@ -540,5 +632,19 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.menu-toggle').classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMenu() {
+            document.querySelector('.menu-toggle').classList.remove('active');
+            document.querySelector('.nav-links').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    </script>
 </body>
 </html>
